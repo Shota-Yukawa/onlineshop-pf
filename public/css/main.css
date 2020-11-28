@@ -1,0 +1,84 @@
+body {
+  background-color: #FBFBF6;
+  width: 100%;
+  font-family: 'Open Sans Condensed', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+
+}
+
+header {
+  width: 100%;
+  border-bottom: 1px solid #D2D2D2;
+}
+.header-inner {
+  width: 95%;
+  margin: 0 auto;
+  padding: 5px 0;
+
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+}
+.header-logo h2 {
+  color: #4D4D4C;
+  line-height: 50px;
+}
+.header-right ul {
+  vertical-align: bottom;
+  display: flex;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.header-right a {
+  color: #4D4D4C;
+}
+
+
+
+
+.sidebar {
+  padding: 0;
+  border-right: 1px solid #D2D2D2;
+}
+.sidebar-top {
+  padding: 15px;
+  border-bottom: 1px solid #D2D2D2;
+  text-align: center;
+}
+.sidebar-top h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.sidebar-box {
+  padding: 10px 20px 30px 20px;;
+  border-bottom: 1px solid #D2D2D2;
+}
+.sidebar-title {
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.sidebar-title h3{
+  display: inline;
+  font-size: 15px;
+  font-weight: bold;
+
+  padding: 5px;
+  border-bottom: 1px solid #D2D2D2;
+
+}
+.sidebar-content {
+  margin: 20px 10px;
+}
+.sidebar-content li {
+ padding: 10px 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+
+.main {
+}
