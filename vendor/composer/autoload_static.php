@@ -27,6 +27,7 @@ class ComposerStaticInit4d91af6646618f18aa0d78dc601d2489
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'b6ec61354e97f32c0ae683041c78392a' => __DIR__ . '/..' . '/scrivo/highlight.php/HighlightUtilities/functions.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -141,6 +142,7 @@ class ComposerStaticInit4d91af6646618f18aa0d78dc601d2489
         'C' => 
         array (
             'Cron\\' => 5,
+            'Collective\\Html\\' => 16,
             'Carbon\\' => 7,
         ),
         'A' => 
@@ -396,6 +398,10 @@ class ComposerStaticInit4d91af6646618f18aa0d78dc601d2489
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
+        'Collective\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelcollective/html/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -429,7 +435,6 @@ class ComposerStaticInit4d91af6646618f18aa0d78dc601d2489
 
     public static $classMap = array (
         'AdminsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AdminsTableSeeder.php',
-        'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Admin\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/ConfirmPasswordController.php',
@@ -438,6 +443,7 @@ class ComposerStaticInit4d91af6646618f18aa0d78dc601d2489
         'App\\Http\\Controllers\\Admin\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Admin\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Admin\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\Admin\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/HomeController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -445,6 +451,9 @@ class ComposerStaticInit4d91af6646618f18aa0d78dc601d2489
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\User\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/Auth/LoginController.php',
+        'App\\Http\\Controllers\\User\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/Auth/RegisterController.php',
+        'App\\Http\\Controllers\\User\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -454,12 +463,13 @@ class ComposerStaticInit4d91af6646618f18aa0d78dc601d2489
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Item' => __DIR__ . '/../..' . '/app/Item.php',
+        'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
+        'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonConverterInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonConverterInterface.php',
@@ -534,6 +544,13 @@ class ComposerStaticInit4d91af6646618f18aa0d78dc601d2489
         'Carbon\\Traits\\Units' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Units.php',
         'Carbon\\Traits\\Week' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Week.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'Collective\\Html\\Componentable' => __DIR__ . '/..' . '/laravelcollective/html/src/Componentable.php',
+        'Collective\\Html\\Eloquent\\FormAccessible' => __DIR__ . '/..' . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
+        'Collective\\Html\\FormBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/FormBuilder.php',
+        'Collective\\Html\\FormFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/FormFacade.php',
+        'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
+        'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
+        'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',
@@ -868,6 +885,7 @@ class ComposerStaticInit4d91af6646618f18aa0d78dc601d2489
         'Faker\\Provider\\Image' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/Image.php',
         'Faker\\Provider\\Internet' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/Internet.php',
         'Faker\\Provider\\Lorem' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/Lorem.php',
+        'Faker\\Provider\\Medical' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/Medical.php',
         'Faker\\Provider\\Miscellaneous' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/Miscellaneous.php',
         'Faker\\Provider\\Payment' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/Payment.php',
         'Faker\\Provider\\Person' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/Person.php',
@@ -971,6 +989,7 @@ class ComposerStaticInit4d91af6646618f18aa0d78dc601d2489
         'Faker\\Provider\\en_PH\\Address' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/en_PH/Address.php',
         'Faker\\Provider\\en_PH\\PhoneNumber' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/en_PH/PhoneNumber.php',
         'Faker\\Provider\\en_SG\\Address' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/en_SG/Address.php',
+        'Faker\\Provider\\en_SG\\Person' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/en_SG/Person.php',
         'Faker\\Provider\\en_SG\\PhoneNumber' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/en_SG/PhoneNumber.php',
         'Faker\\Provider\\en_UG\\Address' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/en_UG/Address.php',
         'Faker\\Provider\\en_UG\\Internet' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/en_UG/Internet.php',

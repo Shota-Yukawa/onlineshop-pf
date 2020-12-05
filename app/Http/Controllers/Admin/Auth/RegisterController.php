@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
-// use App\Http\Controllers\Admin\Auth; // モデルを App\User から変更
-
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-// use App\User;
+use App\Models\Admin;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -14,7 +12,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Admin;
 
 class RegisterController extends Controller
 {
@@ -56,7 +53,7 @@ class RegisterController extends Controller
            return Auth::guard('admin');
        }
 
-       public function showRegistrationForm()
+    public function showRegistrationForm()
        {
            return view('admin.auth.register');
        }

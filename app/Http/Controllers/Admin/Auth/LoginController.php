@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
-// use App\Http\Controllers\Admin\Auth; // モデルを App\User から変更
-
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -64,6 +62,6 @@ class LoginController extends Controller
 
     public function loggedOut(Request $request)
     {
-        return redirect(route('admin.login'));
+        return redirect(route('admin.auth.login'));
     }
 }

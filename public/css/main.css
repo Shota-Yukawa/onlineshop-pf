@@ -82,3 +82,63 @@ header {
 
 .main {
 }
+
+.signup-page, .login-page {
+  margin: 30px;
+}
+
+.conteiner > h3 {
+
+}
+.conteiner > p {
+  margin-left: 20px;
+}
+
+.form-content {
+  margin: 30px;
+}
+.form-row {
+  border: 1px solid #D2D2D2;
+  text-align: center;
+  background-color: #F7F7F7;
+}
+.form-row + .form-row {
+  border-top: none;
+  /* border-right: none; */
+}
+.form-rowleft {
+  border-right: 1px solid #D2D2D2;
+  padding: 30px;
+}
+.form-rowright {
+  padding: 27px;
+}
+.form-rowaddress {
+  margin: 10px 0;
+}
+.form-rowaddress .col-sm-6 {
+  padding: 5px !important;
+}
+.signup-bottom, .login-bottom {
+  text-align: center;
+}
+.form-btn {
+  padding: 10px;
+  background-color: #F7F7F7;
+}
+.form-btn:hover {
+  background-color: #888888;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.ontheotherhand {
+  text-align: right;
+  margin-top: 60px;
+}
+.ontheotherhand .form-btn {
+  padding: 15px 10px;
+  border: 2px black solid;
+  color: black;
+
+}
