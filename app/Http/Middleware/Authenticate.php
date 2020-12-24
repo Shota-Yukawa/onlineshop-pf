@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Support\Facades\Route;
 
 class Authenticate extends Middleware
 {
@@ -14,8 +15,8 @@ class Authenticate extends Middleware
      */
 
 // ルーティングに応じて未ログイン時のリダイレクト先を振り分ける
-    protected $user_route  = 'user.login';
-    protected $admin_route = 'admin.login';
+    protected $user_route  = 'user.auth.login';
+    protected $admin_route = 'admin.auth.login';
 
     protected function redirectTo($request)
     {

@@ -6,6 +6,7 @@
   <p>管理者アカウントで、アイテムの編集が可能です。</p>
   <div class="form-content">
     {!! Form::open(['route' => 'admin.auth.login.post']) !!}
+    @csrf
       <div class="form-row">
         {!! Html::decode(Form::label('mail','メールアドレス: <span class="badge badge-danger">必須</span>', ['class' => 'col-sm-6 form-rowleft'])) !!}
         <div class="col-sm-6 form-rowright">

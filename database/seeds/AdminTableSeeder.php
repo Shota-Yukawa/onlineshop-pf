@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UsersTableSeeder extends Seeder
+class AdminTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,11 +11,11 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('users')->insert([
-          'name'              => 'user',
-          'email'             => 'user@example.com',
+        DB::table('admins')->insert([
+          'name'              => 'admin',
+          'email'             => 'admin@example.com',
           'password'          => Hash::make('12345678'),
           'remember_token'    => Str::random(10),
-      ]);
+        ]);
     }
 }

@@ -17,14 +17,15 @@
      @include('commons.header')
 
      <div class="conteiner">
-       {{--エラーメッセージ--}}
        <div class="container-fluid">
          <div class="row">
-           <div class="col-sm-3 sidebar">
+           <div class="col-sm-2 sidebar">
        @include('commons.sidebar')
            </div>
-
-           <div class="col-sm-9 main">
+           <div class="col-sm-10 main">
+       {{--エラーメッセージ--}}
+       @include('commons.error')
+       {{--コンテンツ--}}
        @yield('content')
            </div>
          </div>

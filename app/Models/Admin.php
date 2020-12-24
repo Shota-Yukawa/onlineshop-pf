@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Item;
 
 class Admin extends Authenticatable
 {
@@ -36,4 +37,23 @@ class Admin extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+
+    public function items()
+    {
+      return $this->hasMany(Item::class);
+    }
+
+    public function all_items()
+    {
+      return $this->Item::all();
+    }
+
+    public function loadRelationshipCounts()
+    {
+        $this->loadCount('items');
+    }
+
 }

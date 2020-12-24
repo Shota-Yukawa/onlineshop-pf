@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Item;
+use App\Models\Admin;
 
 class HomeController extends Controller
 {
@@ -50,10 +52,21 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    //いらん？？
+    // public function show($id)
+    // {
+    //     $admin = Admin::findOrFail($id);
+    //
+    //     $admin->loadRekationshipCounts();
+    //
+    //     $items = $admin->items()->orderBy('created_at', 'desc')->paginate(15);
+    //
+    //     return view('admin.items', [
+    //       'admin' => $admin,
+    //       'items' => $items,
+    //     ]);
+    //
+    // }
 
     /**
      * Show the form for editing the specified resource.
