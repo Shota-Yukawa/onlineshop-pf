@@ -53,14 +53,13 @@ class ItemsController extends Controller
 
     public function store(Request $request)
     {
-
+// dd($request->all());
       $request->validate([
         'name' => 'required|unique:items|max:100',
         'desc' => 'required|max:1000',
         'price' => 'required|max:10',
-        'imgpath' => 'required|max:200'
+        'imgpath' => 'required|file|mimes:jpeg,png,jpg,bmb'
       ]);
-      // dd($request);
 
       // Auth::guard('admin')->check();
       // Auth::guard('admin')->user();
@@ -73,13 +72,22 @@ class ItemsController extends Controller
       //   'imgpath' => $request->imgpath,
       // ]);
 
+      if ($file = $request->imgpath) {
+        //保存するファイルに名前をつける
+           $fileName = 'admin' . auth::id() . '.' . $file->getClientOriginalName();
+           //Laravel直下のpublicディレクトリに新フォルダをつくり保存する
+           $target_path = public_path('items_images/');
+           $file->move($target_path, $fileName);
+       } else {
+           $fileName = "";
+       }
 
       $item = new Item;
       $item->admin_id = \Auth::id();
       $item->name = $request->name;
       $item->desc = $request->desc;
       $item->price = $request->price;
-      $item->imgpath = $request->imgpath;
+      $item->imgpath = $fileName;
       $item->save();
 
       return redirect('/admin/items/index');
@@ -96,7 +104,7 @@ class ItemsController extends Controller
 
     public function edit($id)
     {
-      $item = \App\Models\Item::findOrFail($id);
+      $item = Item::findOrFail($id);
 
       return view('admin.items.edit', [
         'item' => $item,
@@ -109,30 +117,49 @@ class ItemsController extends Controller
       $request->validate([
         'name' => 'required|max:100',
         'desc' => 'required|max:1000',
-        'fee' => 'required|max:10',
-        'imgpath' => 'required|max:200'
+        'price' => 'required|max:10',
+        'imgpath' => 'file|mimes:jpeg,png,jpg,bmb'
       ]);
+
+      $imagefile = $request->file('imgpath');
+
+
 
       $item = Item::findOrFail($id);
       $item->name = $request->name;
       $item->desc = $request->desc;
       $item->price = $request->price;
-      $item->imgpath = $request->imgpath;
+
+      $imagefile = $request->file('imgpath');
+      if( !is_null( $imagefile ) ) {
+        if ($file = $request->imgpath) {
+          $fileName = auth::id(). '.' . $file->getClientOriginalName();
+          $target_path = public_path('items_images/');
+          $file->move($target_path, $fileName);
+        } else {
+          $fileName = "";
+        }
+        $item->imgpath = $fileName;
+      }
+
       $item->save();
 
-      return back();
+      return view('admin.items.edit', [
+        'item' => $item,
+      ]);
 
     }
 
     public function destroy($id)
     {
-      $item = \App\Models\Item::findOrFail($id);
+      $item = Item::findOrFail($id);
 
-      if(\Auth::id() === $item->admin_id) {
-        $item->delete();
-      }
+      $item->delete();
 
-      return back();
+      // return view('admin.items.index', [
+      //   'item' => $item,
+      // ]);
+      return redirect('/admin/items/index');
     }
 
 

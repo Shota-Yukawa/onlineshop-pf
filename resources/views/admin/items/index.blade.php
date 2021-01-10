@@ -3,8 +3,8 @@
 @section('content')
     @if (count($items) > 0)
       @foreach ($items as $item)
-      <p>{{ $item->id }}</p>
-      <!-- <p>{{!! link_to_route('admin.items.detail', $item->id, [], []) !!}}</p> -->
+      <!-- <p>{{ $item->id }}</p> -->
+      <p>{{!! link_to_route('admin.items.detail', $item->id, ['id' => $item->id], []) !!}}</p>
       <p>{{ $item->admin->name }}</p>
       <p>{{ $item->name }}</p>
       <p>{{ $item->desc }}</p>

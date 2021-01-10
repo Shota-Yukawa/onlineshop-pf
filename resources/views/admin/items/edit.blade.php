@@ -2,16 +2,17 @@
 
 @section('content')
 
-<h2>アイテム追加</h2>
+<h2>アイテム{{ $item->id }}の編集</h2>
 
-  {!! Form::model($item, ['route' => 'admin.items.store', 'files' => true,'enctype'=>'multipart/form-data']) !!}
+  {!! Form::model($item, ['route' => ['admin.items.update', $item->id], 'files' => true, 'method' => 'put']) !!}
+
   {{Form::token()}}
     <div class="itemsadd-row">
       <div class="add-left">
         {!! Form::label('name', 'アイテム名') !!}
       </div>
       <div class="add-right">
-        {!! Form::text('name', null, old('name')) !!}
+        {!! Form::text('name', null) !!}
       </div>
     </div>
     <div class="itemsadd-row">
@@ -19,7 +20,7 @@
         {!! Form::label('desc', 'アイテム説明') !!}
       </div>
       <div class="add-right">
-        {!! Form::textarea('desc', null, old('desc')) !!}
+        {!! Form::textarea('desc', null) !!}
       </div>
     </div>
     <div class="itemsadd-row">
@@ -27,28 +28,25 @@
         {!! Form::label('price', '値段') !!}
       </div>
       <div class="add-right">
-        {!! Form::number('price', old('price')) !!}
+        {!! Form::number('price', null) !!}
       </div>
     </div>
     <div class="itemsadd-row">
       <div class="add-left">
         {!! Form::label('imgpath', 'アイテム画像') !!}
       </div>
+      @if($item->imgpath)
+      <p>画像：<img src = "/items_images/{{ $item->imgpath }}" style = "height: 100px; width: 100px;"></p>
+      @else
+      <p>{{ $item->imgpath }}</p>
+      @endif
       <div class="add-right">
-        {!! Form::file('imgpath', old('imgpath')) !!}
+        {!! Form::file('imgpath', null) !!}
       </div>
     </div>
-    {!! Form::submit('アイテム追加', ['class' => 'btn btn-primary']) !!}
-  {!! Form::close() !!}
-    {!! link_to_route('admin.items.index', 'アイテム一覧へ', [], ['class' => 'btn btn-success']) !!}
+    {!! Form::submit('アイテム更新', ['class' => 'btn btn-warning']) !!}
 
-    @if ($errors->any())
-    <div>
-        <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-        </ul>
-    </div>
-    @endif
+  {!! Form::close() !!}
+    {!! link_to_route('admin.items.detail', 'アイテム詳細', ['id' => $item->id], ['class' => 'btn btn-primary']) !!}
+
 @endsection

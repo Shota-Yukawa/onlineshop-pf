@@ -19,7 +19,7 @@ class CreateItemsTable extends Migration
           $table->string('name', 100);
           $table->string('desc', 1000);
           $table->integer('price');
-          $table->string('imgpath', 200);
+          $table->string('imgpath', 2000);
           $table->timestamps();
 
           $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');

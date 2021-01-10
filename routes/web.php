@@ -76,7 +76,7 @@ Route::prefix('admin/items')->name('admin.items.')->group(function() {
     Route::post('store', 'ItemsController@store')->name('store');
     Route::get('detail/{id}', 'ItemsController@detail')->name('detail');
     Route::get('edit/{id}', 'ItemsController@edit')->name('edit');
-    Route::put('update', 'ItemsController@update')->name('update');
-    Route::delete('destory', 'ItemsController@destroy')->name('destroy');
+    Route::put('update/{id}', 'ItemsController@update')->name('update');
+    Route::delete('destory/{id}', 'ItemsController@destroy')->name('destroy');
   });
 });
