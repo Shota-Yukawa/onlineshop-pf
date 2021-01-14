@@ -88,4 +88,19 @@ class HomeController extends Controller
     {
         //
     }
+
+    // public function favorites($id)
+    // {
+    //    $user = User::findOrFail($id);
+    //    //dd($user);
+    //    $user->loadRelationshipCounts();
+    //
+    //    $favorites = $user->favorites()->paginate(10);
+    //
+    //    return view('user.items.favorites', [
+    //        'user' => $user,
+    //        'items' => $favorites,
+    //    ]);
+    // }
+
 }

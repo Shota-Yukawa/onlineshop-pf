@@ -16,4 +16,9 @@ class Item extends Model
   {
     return $this->belongsTo(Admin::class);
   }
+
+  public function favorite()
+  {
+    return $this->belongsToMany(User::class, 'user_favorite', 'item_id', 'user_id')->withTimestamps();
+  }
 }

@@ -11,8 +11,14 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use App\Models\Admin;
 
-class ItemsController extends Controller
+class AdminItemsController extends Controller
 {
+
+  // public function __construct()
+  //  {
+  //      $this->middleware('auth:admin');
+  //  }
+  //
     public function index()
     {
       // $data = [];
@@ -131,17 +137,16 @@ class ItemsController extends Controller
       $item->price = $request->price;
 
       $imagefile = $request->file('imgpath');
-      if( !is_null( $imagefile ) ) {
-        if ($file = $request->imgpath) {
-          $fileName = auth::id(). '.' . $file->getClientOriginalName();
-          $target_path = public_path('items_images/');
-          $file->move($target_path, $fileName);
-        } else {
-          $fileName = "";
+        if( !is_null( $imagefile ) ) {
+          if ($file = $request->imgpath) {
+            $fileName = auth::id(). '.' . $file->getClientOriginalName();
+            $target_path = public_path('items_images/');
+            $file->move($target_path, $fileName);
+          } else {
+            $fileName = "";
+          }
+          $item->imgpath = $fileName;
         }
-        $item->imgpath = $fileName;
-      }
-
       $item->save();
 
       return view('admin.items.edit', [

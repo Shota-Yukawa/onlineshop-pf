@@ -22,7 +22,7 @@ Route::get('/user/login', function () {
 });
 
 
-
+//userとadminのアカウント系
 Route::namespace('User')->prefix('user')->name('user.')->group(function() {
   //ログイン認証関連
   Auth::routes([
@@ -43,7 +43,6 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function() {
   Route::post('login', 'Auth\LoginController@login')->name('auth.login.post');
   Route::get('logout', 'Auth\LoginController@logout')->name('auth.logout.get');
 });
-
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function() {
   //ログイン認証関連
   Auth::routes([
@@ -67,16 +66,32 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function() {
 
 });
 
+//adminのアイテム機能
 Route::prefix('admin/items')->name('admin.items.')->group(function() {
-// Route::group(['middleware' => ['auth:admin'], 'prfixe' => 'admin/items', 'name' => 'admin.items.'], function () {
-  // Route::resource('users', 'UsersController');
   Route::middleware('auth:admin')->group(function () {
-    Route::get('index', 'ItemsController@index')->name('index');
-    Route::get('add', 'ItemsController@add')->name('add');
-    Route::post('store', 'ItemsController@store')->name('store');
-    Route::get('detail/{id}', 'ItemsController@detail')->name('detail');
-    Route::get('edit/{id}', 'ItemsController@edit')->name('edit');
-    Route::put('update/{id}', 'ItemsController@update')->name('update');
-    Route::delete('destory/{id}', 'ItemsController@destroy')->name('destroy');
+    Route::get('index', 'AdminItemsController@index')->name('index');
+    Route::get('add', 'AdminItemsController@add')->name('add');
+    Route::post('store', 'AdminItemsController@store')->name('store');
+    Route::get('detail/{id}', 'AdminItemsController@detail')->name('detail');
+    Route::get('edit/{id}', 'AdminItemsController@edit')->name('edit');
+    Route::put('update/{id}', 'AdminItemsController@update')->name('update');
+    Route::delete('destory/{id}', 'AdminItemsController@destroy')->name('destroy');
   });
 });
+//guest用のアイテム閲覧
+Route::prefix('guest')->name('guest.items.')->group(function() {
+  Route::get('items', 'ItemController@index')->name('index');
+  Route::get('detail/{id}', 'ItemController@detail')->name('detail');
+});
+//User用アイテム閲覧
+Route::prefix('user')->name('user.items.')->group(function() {
+  Route::get('items', 'UserItemsController@index')->name('index');
+  Route::get('detail/{itemid}', 'UserItemsController@detail')->name('detail');
+  Route::get('{userid}/favorites', 'UserItemsController@favorites')->name('favorites');
+});
+
+//userのアイテムfavorite機能
+Route::group(['prefix' => 'item{id}'], function () {
+       Route::post('favorite', 'UserFavoriteController@store')->name('favorites.favorite');
+       Route::delete('unfavorite', 'UserFavoriteController@destroy')->name('favorites.unfavorite');
+   });
