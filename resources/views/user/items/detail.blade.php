@@ -15,6 +15,9 @@
 
   <!-- favoriteボタン -->
   @include('user.items.favoritebtn')
+  <br>
+  <!-- cartボタン -->
+  @include('user.items.cartbtn')
 
     <p>{!! link_to_route('user.items.index', 'アイテム一覧に戻る', ['userid' => Auth::user()->id], ['class' => 'btn btn-success']) !!}</p>
 

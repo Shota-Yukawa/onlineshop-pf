@@ -4,7 +4,6 @@
 <p>お気に入り一覧 page だよ</p>
 @if (count($items) > 0)
   @foreach ($items as $item)
-  <!-- <p>{{ $item->id }}</p> -->
   <p>{{!! link_to_route('user.items.detail', $item->id, ['itemid' => $item->id], []) !!}}</p>
   </br>
   @endforeach

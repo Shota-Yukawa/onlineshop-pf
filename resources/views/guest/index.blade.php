@@ -5,7 +5,7 @@
     @if (count($items) > 0)
       @foreach ($items as $item)
       <!-- <p>{{ $item->id }}</p> -->
-      <p>{{!! link_to_route('items.detail', $item->id, ['itemid' => $item->id], []) !!}}</p>
+      <p>{{!! link_to_route('guest.items.detail', $item->id, ['itemid' => $item->id], []) !!}}</p>
       </br>
       @endforeach
     @endif
@@ -16,7 +16,7 @@
     @endif
 
   <div class="">
-    {!! link_to_route('user.login', 'ユーザーログインページへ', []) !!}
+    {!! link_to_route('user.auth.login', 'ユーザーログインページへ', []) !!}
   </div>
 
 @endsection

@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Item;
+use App\Models\Cart;
 
 class User extends Authenticatable
 {
@@ -79,12 +80,31 @@ class User extends Authenticatable
 
     public function now_favorite($itemId)
     {
-      //favorites中のアイテムideaと、$itemIdのものが存在するか。
+      //favorites中のアイテムideaと、$itemIdのものが存在するか。既にしているか。
       return $this->favorites()->where('item_id', $itemId)->exists();
     }
 
-    public function loadRelationshipCounts()
-    {
-      $this->loadCount(['favorites']);
-    }
+
+//cart機能
+  public function carts()
+  {
+    return $this->hasMany(Cart::class)
+    ->where('complete', 0);
+  }
+  public function now_cart($itemId)
+  {
+    //carts中のアイテムidと、$itemIdのものが存在するか。既にしているか。
+    return $this->carts()->where('item_id', $itemId)->exists();
+  }
+
+  public function loadRelationshipCounts()
+  {
+    $this->loadCount(['favorites', 'carts']);
+  }
+
+
+
+
+
+
 }

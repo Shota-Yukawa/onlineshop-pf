@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="form-row">
+    <!-- <div class="form-row">
       {!! Html::decode(Form::label('tel','電話番号: <span class="badge badge-danger">必須</span>', ['class' => 'col-sm-6 form-rowleft'])) !!}
       <div class="col-sm-6 form-rowright">
         <p>
@@ -64,7 +64,7 @@
         </div>
       </div>
     </div>
-
+ -->
     <div class="form-row">
       {!! Html::decode(Form::label('password','パスワード: <span class="badge badge-danger">必須</span>', ['class' => 'col-sm-6 form-rowleft'])) !!}
       <div class="col-sm-6 form-rowright">

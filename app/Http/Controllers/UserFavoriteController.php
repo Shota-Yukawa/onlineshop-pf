@@ -12,19 +12,19 @@ class UserFavoriteController extends Controller
          $this->middleware('auth:user');
      }
 
-    public function store($id)
+    public function store($itemid)
     {
       // 認証済みユーザ（閲覧者）が、 idのitemをfavoriteする
-      \Auth::user()->favorite($id);
+      \Auth::user()->favorite($itemid);
 
       return back();
 
     }
 
-    public function destroy($id)
+    public function destroy($itemid)
     {
       // 認証済みユーザ（閲覧者）が、 idのitemをunfavoriteする
-      \Auth::user()->unfavorite($id);
+      \Auth::user()->unfavorite($itemid);
 
       return back();
     }

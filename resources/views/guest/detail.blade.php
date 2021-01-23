@@ -13,6 +13,9 @@
     @endif
   </br>
 
+  <p>↓ユーザーにログインするとアイテムをお気に入りに登録できます！！</p>
+  {!! link_to_route('user.auth.login', 'ユーザーログインページへ', []) !!}
+
   <!-- favoriteボタン -->
   @include('user.items.favoritebtn')
 

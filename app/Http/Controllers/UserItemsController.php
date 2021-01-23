@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\User;
+use App\Models\Cart;
 
 Use Auth;
 
@@ -56,7 +57,24 @@ class UserItemsController extends Controller
            'items' => $favorites,
        ]);
     }
+    public function carts($userid)
+    {
+       $user = User::findOrFail($userid);
+       // dd($user);
+       $user->loadRelationshipCounts();
 
+       $carts = $user->carts()->paginate(10);
+
+       $total = $user->carts->sum(function($item){
+         return $item->price * $item->cart_quantity;
+     });
+
+       return view('user.items.carts', [
+           'user' => $user,
+           'cartitems' => $carts,
+           'total' => $total,
+       ]);
+    }
 
 
 }

@@ -67,8 +67,6 @@ class AdminItemsController extends Controller
         'imgpath' => 'required|file|mimes:jpeg,png,jpg,bmb'
       ]);
 
-      // Auth::guard('admin')->check();
-      // Auth::guard('admin')->user();
       // $admin = \Auth::Admin();
 
       // $request->admin()->items()->create([

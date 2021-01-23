@@ -22,7 +22,7 @@ Route::get('/user/login', function () {
 });
 
 
-//userとadminのアカウント系
+//userのauth
 Route::namespace('User')->prefix('user')->name('user.')->group(function() {
   //ログイン認証関連
   Auth::routes([
@@ -43,6 +43,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function() {
   Route::post('login', 'Auth\LoginController@login')->name('auth.login.post');
   Route::get('logout', 'Auth\LoginController@logout')->name('auth.logout.get');
 });
+//adminのauth
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function() {
   //ログイン認証関連
   Auth::routes([
@@ -81,17 +82,23 @@ Route::prefix('admin/items')->name('admin.items.')->group(function() {
 //guest用のアイテム閲覧
 Route::prefix('guest')->name('guest.items.')->group(function() {
   Route::get('items', 'ItemController@index')->name('index');
-  Route::get('detail/{id}', 'ItemController@detail')->name('detail');
+  Route::get('detail/{itemid}', 'ItemController@detail')->name('detail');
 });
 //User用アイテム閲覧
 Route::prefix('user')->name('user.items.')->group(function() {
   Route::get('items', 'UserItemsController@index')->name('index');
   Route::get('detail/{itemid}', 'UserItemsController@detail')->name('detail');
   Route::get('{userid}/favorites', 'UserItemsController@favorites')->name('favorites');
+  Route::get('{userid}/carts', 'UserItemsController@carts')->name('carts');
 });
 
 //userのアイテムfavorite機能
 Route::group(['prefix' => 'item{id}'], function () {
        Route::post('favorite', 'UserFavoriteController@store')->name('favorites.favorite');
        Route::delete('unfavorite', 'UserFavoriteController@destroy')->name('favorites.unfavorite');
+   });
+Route::group(['prefix' => 'item{id}'], function () {
+       Route::post('cart', 'UserCartController@store')->name('carts.cart');
+       Route::put('recart', 'UserCartController@qtystore')->name('carts.recart');
+       Route::delete('uncart', 'UserCartController@destroy')->name('carts.uncart');
    });

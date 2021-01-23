@@ -11,7 +11,9 @@
     @endif
 
     @if(Auth::check())
-    {!! link_to_route('user.items.favorites', 'お気に入りアイテム一覧へ', ['userid' => $user->id], []) !!}
+    <p>{!! link_to_route('user.items.favorites', 'お気に入りアイテム一覧へ', ['userid' => $user->id], []) !!}</p>
+    <br>
+    <p>{!! link_to_route('user.items.carts', 'カート一覧へ', ['userid' => $user->id], []) !!}</p>
 
     @endif
 
