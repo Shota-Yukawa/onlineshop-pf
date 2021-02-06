@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Category;
 
 class Item extends Model
 {
@@ -21,8 +22,10 @@ class Item extends Model
   {
     return $this->belongsToMany(User::class, 'user_favorite', 'item_id', 'user_id')->withTimestamps();
   }
-  public function carts()
+
+  public function category()
   {
-    return $this->belongsToMany(User::class, 'carts', 'item_id', 'user_id')->withTimestamps();
+    return $this->belongsTo(Category::class);
   }
+
 }

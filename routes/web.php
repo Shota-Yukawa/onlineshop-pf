@@ -77,12 +77,17 @@ Route::prefix('admin/items')->name('admin.items.')->group(function() {
     Route::get('edit/{id}', 'AdminItemsController@edit')->name('edit');
     Route::put('update/{id}', 'AdminItemsController@update')->name('update');
     Route::delete('destory/{id}', 'AdminItemsController@destroy')->name('destroy');
+    Route::get('category/{cateid}', 'AdminItemsController@category')->name('category');
+
   });
 });
 //guest用のアイテム閲覧
-Route::prefix('guest')->name('guest.items.')->group(function() {
+Route::name('guest.items.')->group(function() {
   Route::get('items', 'ItemController@index')->name('index');
   Route::get('detail/{itemid}', 'ItemController@detail')->name('detail');
+  Route::get('category/{cateid}', 'ItemController@category')->name('category');
+
+
 });
 //User用アイテム閲覧
 Route::prefix('user')->name('user.items.')->group(function() {
@@ -90,6 +95,10 @@ Route::prefix('user')->name('user.items.')->group(function() {
   Route::get('detail/{itemid}', 'UserItemsController@detail')->name('detail');
   Route::get('{userid}/favorites', 'UserItemsController@favorites')->name('favorites');
   Route::get('{userid}/carts', 'UserItemsController@carts')->name('carts');
+  Route::get('category/{cateid}', 'UserItemsController@category')->name('category');
+  Route::get('instagram', 'UserItemsController@insta')->name('insta.index');
+  Route::get('instagram/hashtag', 'UserItemsController@hashtag')->name('insta.hash');
+
 });
 
 //userのアイテムfavorite機能
@@ -102,3 +111,6 @@ Route::group(['prefix' => 'item{id}'], function () {
        Route::put('recart', 'UserCartController@qtystore')->name('carts.recart');
        Route::delete('uncart', 'UserCartController@destroy')->name('carts.uncart');
    });
+
+Route::get('instagram', 'InstagramController@insta')->name('rotsmec.insta');
+Route::get('instagram/hashtag', 'InstagramController@hashtag')->name('rotsmec.insta.hash');

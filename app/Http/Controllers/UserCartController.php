@@ -21,6 +21,8 @@ class UserCartController extends Controller
     $cart = new Cart;
     $cart->item_id = $item->id;
     $cart->price = $item->price;
+    $cart->name = $item->name;
+    $cart->imgpath = $item->imgpath;
     $cart->cart_quantity = 1;
     \Auth::user()->carts()->save($cart);
 
@@ -40,7 +42,7 @@ class UserCartController extends Controller
       $cart = Cart::findOrFail($cartid);
 
       $item = Item::findOrFail($cart->item_id);
-      
+
       $cart->item_id = $item->id;
       $cart->price = $item->price;
       $cart->cart_quantity = $request->cart_quantity;

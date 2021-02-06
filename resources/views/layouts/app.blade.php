@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link href="{{ asset('css/start.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="./css/start.css">
-    <link rel="stylesheet" href="./css/main.css"> -->
+    <link href="{{ asset('css/content.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   </head>
   <body>
@@ -20,13 +20,16 @@
        <div class="container-fluid">
          <div class="row">
            <div class="col-sm-2 sidebar">
-       @include('commons.sidebar')
+            <!-- サイドバー -->
+           @include('commons.sidebar')
            </div>
            <div class="col-sm-10 main">
-       {{--エラーメッセージ--}}
-       @include('commons.error')
-       {{--コンテンツ--}}
-       @yield('content')
+             <div class="" style="margin:10px;">
+               {{--エラーメッセージ--}}
+               @include('commons.error')
+               {{--コンテンツ--}}
+               @yield('content')
+             </div>
            </div>
          </div>
        </div>

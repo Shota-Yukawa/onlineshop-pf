@@ -1,10 +1,14 @@
 @if(Auth::check())
       <!-- cartのボタン -->
     @if (Auth::user()->now_cart($item->id))
-    <p>このアイテムはあなたのカートに入っています。</p>
+    <p class="carted">このアイテムはあなたのカートに入っています。</p>
     @else
       {!! Form::open(['route' => ['carts.cart', $item->id]]) !!}
-        {!! Form::submit('Add to Cart', ['class' => 'btn btn-info btn-sm']) !!}
+        {!! Form::submit('Add to Cart', ['class' => 'form-btn']) !!}
       {!! Form::close() !!}
     @endif
-@endif
+    @else
+    <div class="user-btn">
+      {!! link_to_route('user.auth.login', 'ユーザーログインページへ',[], ['class' => 'form-btn']) !!}
+    </div>
+    @endif

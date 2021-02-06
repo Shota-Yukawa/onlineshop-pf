@@ -15,7 +15,6 @@ trait AuthenticatesUsers
      *
      * @return \Illuminate\Http\Response
      */
-
     public function showLoginForm()
     {
         return view('auth.login');

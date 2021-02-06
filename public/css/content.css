@@ -1,0 +1,108 @@
+/* user/items */
+.page-title {
+  margin: 30px;
+}
+.all-item h4 {
+  font-weight: bold;
+}
+
+.index-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+.item {
+  margin: 0px 17px;
+}
+.item-info > p {
+  font-size: 11px;
+  padding: 5px 0;
+}
+.item-info {
+  margin-bottom: 20px;
+}
+
+/* item detail */
+.item-detail {
+  margin: 0 30px 40px;
+  display: flex;
+}
+.detail-left {
+  width: 50%;
+}
+.detail-right {
+  width: 40%;
+  margin: 0 20px;
+}
+.detail-right > p, .detail-right > div {
+  margin: 20px;
+}
+.item-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+.tax {
+  font-size: 15px;
+}
+.item-desc {
+  height: 350px;
+}
+.unfavo-btn {
+  background-color: #777777;
+}
+.unfavo-btn:hover {
+  opacity: .5;
+}
+
+
+/* cart items */
+table {
+  font-size: 15px;
+  width: 95%;
+  table-layout: fixed;
+  margin-left: 30px;
+  border: 2px solid #D2D2D2;
+  background-color: #F7F7F7;
+}
+th, td{
+  border: 1px solid #D2D2D2;
+}
+td {
+  padding: 20px 0;
+}
+tr {
+  border: 2px solid #D2D2D2;
+}
+.table-head {
+  height: 60px;
+}
+.table-item, .table-head, .table-item .user-btn {
+  text-align: center;
+}
+.table-item td, .table-head th{
+  vertical-align: middle;
+}
+.cart-sum  {
+  text-align: right;
+  margin: 30px;
+}
+
+/* imstagrm */
+.post {
+  width: 300px;
+  height: 400px;
+  margin: 10px;
+  border: 2px solid black;
+  background-color: white;
+}
+.post-img {
+  width: 100%;
+  height: 60%;
+  text-align: center;
+}
+.post-img img {
+  margin-top: 20px;
+  border: 1px solid #D2D2D2;
+}
+.post-cap {
+  margin: 20px;
+}

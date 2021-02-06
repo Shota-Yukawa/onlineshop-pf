@@ -10,15 +10,16 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use App\Models\Admin;
+use App\Models\Category;
 
 class AdminItemsController extends Controller
 {
 
-  // public function __construct()
-  //  {
-  //      $this->middleware('auth:admin');
-  //  }
-  //
+  public function __construct()
+   {
+       $this->middleware('auth:admin');
+   }
+
     public function index()
     {
       // $data = [];
@@ -31,14 +32,10 @@ class AdminItemsController extends Controller
         $items = Item::all();
         // dd($items);
 
-        // global $data;
-        // $data = [
-        //   'admin' => $admin,
-        //   'items' => $items,
-        // ];
       }
       // return view('admin.items.index', compact('items', 'admin'));
       return view('admin.items.index', compact('items'));
+
 
     }
 
@@ -50,21 +47,21 @@ class AdminItemsController extends Controller
         // dd($item);
 
       }
-      // return view('admin.items.add', [
-      //   'item' => $item,
-      // ]);
-      return view('admin.items.add', compact('item'));
+      return view('admin.items.add', [
+        'item' => $item,
+      ]);
+      // return view('admin.items.add', compact('item'));
     }
 
 
     public function store(Request $request)
     {
-// dd($request->all());
       $request->validate([
         'name' => 'required|unique:items|max:100',
         'desc' => 'required|max:1000',
         'price' => 'required|max:10',
-        'imgpath' => 'required|file|mimes:jpeg,png,jpg,bmb'
+        'imgpath' => 'required|file|mimes:jpeg,png,jpg,bmb',
+        'cate_id' => 'required'
       ]);
 
       // $admin = \Auth::Admin();
@@ -92,6 +89,7 @@ class AdminItemsController extends Controller
       $item->desc = $request->desc;
       $item->price = $request->price;
       $item->imgpath = $fileName;
+      $item->cate_id = $request->cate_id;
       $item->save();
 
       return redirect('/admin/items/index');
@@ -100,9 +98,12 @@ class AdminItemsController extends Controller
     public function detail($id)
     {
       $item = Item::findOrFail($id);
+      $item_cate = Category::findOrFail($item->cate_id);
+
 
       return view('admin.items.detail', [
         'item' => $item,
+        'category' => $item_cate,
       ]);
     }
 
@@ -122,7 +123,8 @@ class AdminItemsController extends Controller
         'name' => 'required|max:100',
         'desc' => 'required|max:1000',
         'price' => 'required|max:10',
-        'imgpath' => 'file|mimes:jpeg,png,jpg,bmb'
+        'imgpath' => 'file|mimes:jpeg,png,jpg,bmb',
+        'cate_id' => 'required'
       ]);
 
       $imagefile = $request->file('imgpath');
@@ -145,10 +147,15 @@ class AdminItemsController extends Controller
           }
           $item->imgpath = $fileName;
         }
+
+      $item->cate_id = $request->cate_id;
       $item->save();
 
-      return view('admin.items.edit', [
+      $item_cate = Category::findOrFail($item->cate_id);
+
+      return view('admin.items.detail', [
         'item' => $item,
+        'category' => $item_cate,
       ]);
 
     }
@@ -159,13 +166,20 @@ class AdminItemsController extends Controller
 
       $item->delete();
 
-      // return view('admin.items.index', [
-      //   'item' => $item,
-      // ]);
       return redirect('/admin/items/index');
     }
 
+    public function category($cateid)
+    {
+      $items = Item::where('cate_id', $cateid)->get();
+  // dd($item);
+      $item_cate = Category::findOrFail($cateid);
 
+      return view('admin.items.category', [
+        'items' => $items,
+        'category' => $item_cate,
+      ]);
+    }
 
 
 }

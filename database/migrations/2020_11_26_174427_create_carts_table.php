@@ -21,6 +21,8 @@ class CreateCartsTable extends Migration
           $table->unsignedInteger('order_id')->nullable();
           $table->integer('cart_quantity');
           $table->integer('price');
+          $table->string('name');
+          $table->string('imgpath');
           $table->timestamps();
 
           $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

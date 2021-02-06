@@ -15,7 +15,6 @@ trait RegistersUsers
      *
      * @return \Illuminate\Http\Response
      */
-
     public function showRegistrationForm()
     {
         return view('auth.register');

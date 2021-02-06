@@ -4,6 +4,7 @@
 <div class="conteiner login-page">
   <h3>お客様用会員登録</h3>
   <p>既にアカウントをお持ちの方は、こちらからログインをしてください。</p>
+  <p>favorite・cart機能には、ログインが必要です。</p>
   <div class="form-content">
     {!! Form::open(['route' => 'user.auth.login.post']) !!}
       <div class="form-row">

@@ -1,14 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-<p>Userにログイン成功</p>
+<p>ログインできました。ありがとうございます。</p>
 
-@if (Auth::check())
-      {{ Auth::user()->name }}
-      {{ Auth::user()->id }}
+
+
+
+@if(Auth::check())
+
+<div class="user-btn">
+  {!! link_to_route('user.items.index', 'ユーザー用アイテム一覧へ', [], ['class' => 'form-btn']) !!}
+</div>
+<div class="user-btn">
+  {!! link_to_route('user.items.favorites', 'お気に入りアイテム一覧へ', ['userid' => $user->id], ['class' => 'form-btn']) !!}
+</div>
+<div class="user-btn">
+  {!! link_to_route('user.items.carts', 'カート一覧へ',  ['userid' => $user->id], ['class' => 'form-btn']) !!}
+</div>
 @endif
 
-<p>{!! link_to_route('user.items.index', 'ユーザー用アイテム一覧へ', []) !!}</p>
+
 <div class="ontheotherhand">
   {{-- ログアウトへのリンク --}}
   {!! link_to_route('user.auth.logout.get', 'userからログアウト', [], ['class' => 'form-btn']) !!}

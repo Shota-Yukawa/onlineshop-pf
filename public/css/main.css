@@ -23,6 +23,9 @@ header {
   color: #4D4D4C;
   line-height: 50px;
 }
+.header-logo a:hover {
+  text-decoration: none;
+}
 .header-right ul {
   vertical-align: bottom;
   display: flex;
@@ -71,11 +74,20 @@ header {
 }
 .sidebar-content {
   margin: 20px 10px;
+
 }
 .sidebar-content li {
- padding: 10px 0;
+  padding: 10px 0;
   font-size: 12px;
   font-weight: bold;
+}
+.sidelink {
+  color: #212629;
+}
+.sidelink:hover {
+  color: #212629;
+  opacity: 0.5 ;
+  text-decoration: none;
 }
 
 
@@ -87,8 +99,8 @@ header {
   margin: 30px;
 }
 
-.conteiner > h3 {
-
+.conteiner {
+  margin-bottom: 50px;
 }
 .conteiner > p {
   margin-left: 20px;
@@ -127,9 +139,10 @@ header {
   background-color: #F7F7F7;
 }
 .form-btn:hover {
-  background-color: #888888;
+  background-color: #777777;
   cursor: pointer;
   transition: .5s;
+  text-decoration: none;
 }
 
 .ontheotherhand {
@@ -140,11 +153,31 @@ header {
   padding: 15px 10px;
   border: 2px black solid;
   color: black;
+}
+
+.item .ontheotherhand {
+  text-align: left !important;
+}
+.user-btn {
+  text-align: left;
+  margin-top: 30px;
+}
+.user-btn .form-btn {
+  padding: 15px 10px;
+  border: 2px black solid;
+  color: black;
 
 }
 
-
-
-.itemsaad-row {
-  display: 
+.font-gray {
+  color: #999999;
+}
+.bold {
+  font-weight: bold;
+}
+.br {
+  height: 40px;
+}
+.font-15 {
+  font-size: 32px;
 }

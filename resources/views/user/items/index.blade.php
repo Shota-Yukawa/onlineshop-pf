@@ -1,32 +1,67 @@
 @extends('layouts.app')
 
 @section('content')
-<p>アイテム一覧　アイテムid</p>
+@if(Auth::check())
+    <div class="page-title">
+      <h4>All item</h4>
+    </div>
     @if (count($items) > 0)
+    <div class="index-items">
       @foreach ($items as $item)
-      <!-- <p>{{ $item->id }}</p> -->
-      <p>{{!! link_to_route('user.items.detail', $item->id, ['itemid' => $item->id], []) !!}}</p>
-      </br>
+        <div class="item">
+          <div class="item-img">
+            <a href="/user/detail/{{ $item->id }}">
+              <p><img src = "/items_images/{{ $item->imgpath }}" style = "height: 400px; width: 300px;"></p>
+            </a>
+          </div>
+          <div class="item-info">
+            <p>{{ $item->name }}</p>
+            <p class="font-gray">¥{{ $item->price}}</p>
+          </div>
+        </div>
       @endforeach
+    </div>
     @endif
 
-    @if(Auth::check())
-    <p>{!! link_to_route('user.items.favorites', 'お気に入りアイテム一覧へ', ['userid' => $user->id], []) !!}</p>
+    <div class="user-btn">
+      {!! link_to_route('user.items.favorites', 'お気に入りアイテム一覧へ', ['userid' => $user->id], ['class' => 'form-btn']) !!}
+    </div>
     <br>
-    <p>{!! link_to_route('user.items.carts', 'カート一覧へ', ['userid' => $user->id], []) !!}</p>
-
-    @endif
-
-    @if (Auth::check())
-          {{ Auth::user()->name }}
-          {{ Auth::user()->id }}
-    @endif
-
+    <div class="user-btn">
+      {!! link_to_route('user.items.carts', 'カート一覧へ',  ['userid' => $user->id], ['class' => 'form-btn']) !!}
+    </div>
+    <br>
+    <div class="user-btn">
+      {!! link_to_route('user.home.index', 'ユーザーホームへ', [], ['class' => 'form-btn']) !!}
+    </div>
 
 
-
-  <div class="">
-    {!! link_to_route('user.home.index', 'ユーザーホームへ', []) !!}
+@else
+<div class="page-title">
+  <h4>All item</h4>
+</div>
+  @if (count($items) > 0)
+  <div class="index-items">
+    @foreach ($items as $item)
+      <div class="item">
+        <div class="item-img">
+          <a href="/detail/{{ $item->id }}">
+            <p><img src = "/items_images/{{ $item->imgpath }}" style = "height: 400px; width: 300px;"></p>
+          </a>
+        </div>
+        <div class="item-info">
+          <p>{{ $item->name }}</p>
+          <p class="font-gray">¥{{ $item->price}}</p>
+        </div>
+      </div>
+    @endforeach
   </div>
+  @endif
+
+
+@endif
+
+
+
 
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
   <p>detail page だよ</p>
@@ -6,10 +6,11 @@
     <p>{{ $item->id }}</p>
     <p>{{ $item->admin->name }}</p>
     <p>{{ $item->name }}</p>
+    <p>カテゴリー：{{ $category->cate_name }}</p>
     <p>{{ $item->desc }}</p>
     <p>{{ $item->price }}</p>
     @if($item->imgpath)
-    <p>画像：<img src = "/items_images/{{ $item->imgpath }}" style = "height: 100px; width: 100px;"></p>
+    <p>画像：<img src = "/items_images/{{ $item->imgpath }}" style = "height: 200px; width: 300px;"></p>
     @else
     <p>{{ $item->imgpath }}</p>
     @endif

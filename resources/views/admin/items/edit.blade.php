@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
 
@@ -44,6 +44,15 @@
         {!! Form::file('imgpath', null) !!}
       </div>
     </div>
+    <div class="itemsadd-row">
+      <div class="add-left">
+        {!! Form::label('cate_id', 'カテゴリー') !!}
+      </div>
+      <div class="add-right">
+        {!! Form::select('cate_id', ['カテゴリーなし', '1-Tops', '2--Outer', '3-Bottoms', '4-Accesary', '5-Others']) !!}
+      </div>
+    </div>
+
     {!! Form::submit('アイテム更新', ['class' => 'btn btn-warning']) !!}
 
   {!! Form::close() !!}
