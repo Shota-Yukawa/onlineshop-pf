@@ -23,7 +23,6 @@ class UserItemsController extends Controller
     public function index()
     {
       $items = Item::all();
-      // $user = User::findOrFail($userid);
       $user = \Auth::user();
   // dd($user);
       return view('user.items.index', [
@@ -51,10 +50,10 @@ class UserItemsController extends Controller
     public function favorites($userid)
     {
        $user = User::findOrFail($userid);
-       // dd($user);
+// dd($user);
        $user->loadRelationshipCounts();
 
-       $favorites = $user->favorites()->paginate(10);
+       $favorites = $user->favorites();
 // dd($favorites);
        return view('user.items.favorites', [
            'user' => $user,

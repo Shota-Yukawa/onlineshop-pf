@@ -31,6 +31,16 @@
         <h2>Rots Mrc</h2>
       </a>
     </div>
+    <div class="header-right">
+      <ul>
+        <li class="nav-item">
+          <a href="/user/home" class="nav-link">
+            <span class=" fa fa-address-book"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
 
     @endif
   </div>

@@ -1,7 +1,4 @@
 /* user/items */
-.page-title {
-  margin: 30px;
-}
 .all-item h4 {
   font-weight: bold;
 }
@@ -12,6 +9,13 @@
 }
 .item {
   margin: 0px 17px;
+}
+.item-img:hover {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  -ms-filter: "alpha(opacity=70)";
+  transition: .5s;
+
 }
 .item-info > p {
   font-size: 11px;
@@ -81,12 +85,20 @@ tr {
 .table-item td, .table-head th{
   vertical-align: middle;
 }
+.submit-btn:hover {
+  opacity: .5;
+}
 .cart-sum  {
   text-align: right;
-  margin: 30px;
+  margin: 30px 80px;
 }
 
 /* imstagrm */
+.insta-posts {
+  display: flex;
+  flex-wrap: wrap;
+
+}
 .post {
   width: 300px;
   height: 400px;

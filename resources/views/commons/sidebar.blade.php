@@ -7,14 +7,14 @@
         </div>
         <div class="sidebar-content">
           <ul>
-            <li>
+            <!-- <li>
               <span class="fa fa-tag"></span>
               New
             </li>
             <li>
               <span class="fa fa-tag"></span>
               Reserve
-            </li>
+            </li> -->
       @if (Auth::user())
             <li>
               <span class="fa fa-tag"></span>
@@ -103,14 +103,14 @@
               <a href="/instagram" class="sidelink">Instagram</a>
             </li>
       @endif
-            <li>
+            <!-- <li>
               <span class="fa fa-tag"></span>
               Twitter
             </li>
             <li>
               <span class="fa fa-tag"></span>
               Wear
-            </li>
+            </li> -->
 
           </ul>
         </div>

@@ -4,6 +4,9 @@ body {
   font-family: 'Open Sans Condensed', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 
 }
+.conteiner {
+  height: ;
+}
 
 header {
   width: 100%;
@@ -39,7 +42,7 @@ header {
 }
 
 
-
+/* commons */
 
 .sidebar {
   padding: 0;
@@ -57,6 +60,9 @@ header {
 .sidebar-box {
   padding: 10px 20px 30px 20px;;
   border-bottom: 1px solid #D2D2D2;
+}
+.sidebar-box:last-of-type  {
+  border: none;
 }
 .sidebar-title {
   margin-left: 20px;
@@ -90,10 +96,21 @@ header {
   text-decoration: none;
 }
 
-
-
-.main {
+/* footer */
+.footer {
+  height: 100%;
 }
+.footer-content {
+  padding: 30px 50px 20px;
+  border-top: 2px solid #D2D2D2;
+  text-align: center;
+}
+.footer-content h1 {
+  margin-top: 20px;
+}
+
+/* main content */
+/* 共通クラスタ */
 
 .signup-page, .login-page {
   margin: 30px;
@@ -169,6 +186,9 @@ header {
 
 }
 
+.page-title {
+  margin: 30px;
+}
 .font-gray {
   color: #999999;
 }

@@ -11,9 +11,11 @@
 |
 */
 //テスト用
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('user.items.index');
+// });
+Route::get('/', 'ItemController@index');
+
 Route::get('/admin/login', function () {
     return view('admin.auth.login');
 });

@@ -5,8 +5,8 @@
 <table class="">
   <tr class="table-head">
     <th>アイテム写真</th>
-    <th>アイテム名<br>価格</th>
-    <th>お値段</th>
+    <th>アイテム名<br>単価</th>
+    <th>商品ごとのお値段</th>
     <th>数量</th>
     <th>削除</th>
   </tr>
@@ -27,12 +27,12 @@
     <td>
       {!! Form::open(['route' => ['carts.recart', $item->id], 'method' => 'put']) !!}
         {!! Form::selectRange('cart_quantity', 1, 10, $item->cart_quantity, []) !!}
-        {!! Form::submit('アイテム数量更新', ['class'=>'submit']) !!}
+        {!! Form::submit('アイテム数量更新', ['class'=>'submit-btn']) !!}
       {!! Form::close() !!}
     </td>
     <td>
       {!! Form::open(['route' => ['carts.uncart', $item->id], 'method' => 'delete']) !!}
-      {!! Form::submit('✖️', []) !!}
+      {!! Form::submit('✖️', ['class'=>'submit-btn']) !!}
       {!! Form::close() !!}
     </td>
   </tr>
