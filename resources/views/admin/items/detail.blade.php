@@ -10,7 +10,7 @@
     <p>{{ $item->desc }}</p>
     <p>{{ $item->price }}</p>
     @if($item->imgpath)
-    <p>画像：<img src = "/items_images/{{ $item->imgpath }}" style = "height: 200px; width: 300px;"></p>
+    <p>画像：<img src = "{{ $item->imgpath }}" style = "height: 200px; width: 300px;"></p>
     @else
     <p>{{ $item->imgpath }}</p>
     @endif

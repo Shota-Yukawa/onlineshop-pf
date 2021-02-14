@@ -14,7 +14,7 @@
     </tr>
   <tr class="table-item">
     <td class="table-image">
-      <img src = "/items_images/{{ $item->imgpath }}" style = "height: 250px; width: 200px;">
+      <img src = "{{ $item->imgpath }}" style = "height: 250px; width: 200px;">
     </td>
     <td class="table-name">
       <p>{{ $item->name }}</p>

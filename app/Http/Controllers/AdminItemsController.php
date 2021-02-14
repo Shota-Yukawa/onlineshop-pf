@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
@@ -73,22 +74,28 @@ class AdminItemsController extends Controller
       //   'imgpath' => $request->imgpath,
       // ]);
 
-      if ($file = $request->imgpath) {
-        //保存するファイルに名前をつける
-           $fileName = 'admin' . auth::id() . '.' . $file->getClientOriginalName();
-           //Laravel直下のpublicディレクトリに新フォルダをつくり保存する
-           $target_path = public_path('items_images/');
-           $file->move($target_path, $fileName);
-       } else {
-           $fileName = "";
-       }
+
+      $file = $request->file('imgpath');
+      $img_path = Storage::disk('s3')->putFile('/items_images', $file, 'public');
+
+
+      // if ($file = $request->imgpath) {
+      //   //保存するファイルに名前をつける
+      //      $fileName = 'admin' . auth::id() . '.' . $file->getClientOriginalName();
+      //      //Laravel直下のpublicディレクトリに新フォルダをつくり保存する
+      //      $target_path = public_path('items_images/');
+      //      $file->move($target_path, $fileName);
+      //  } else {
+      //      $fileName = "";
+      //  }
 
       $item = new Item;
       $item->admin_id = \Auth::id();
       $item->name = $request->name;
       $item->desc = $request->desc;
       $item->price = $request->price;
-      $item->imgpath = $fileName;
+      // $item->imgpath = $fileName;
+      $item->imgpath = Storage::disk('s3')->url($img_path);
       $item->cate_id = $request->cate_id;
       $item->save();
 
@@ -138,14 +145,9 @@ class AdminItemsController extends Controller
 
       $imagefile = $request->file('imgpath');
         if( !is_null( $imagefile ) ) {
-          if ($file = $request->imgpath) {
-            $fileName = auth::id(). '.' . $file->getClientOriginalName();
-            $target_path = public_path('items_images/');
-            $file->move($target_path, $fileName);
-          } else {
-            $fileName = "";
-          }
-          $item->imgpath = $fileName;
+          $file = $request->file('imgpath');
+          $img_path = Storage::disk('s3')->putFile('/items_images', $file, 'public');
+          $item->imgpath = Storage::disk('s3')->url($img_path);
         }
 
       $item->cate_id = $request->cate_id;

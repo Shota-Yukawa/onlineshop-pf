@@ -10,7 +10,7 @@
         <div class="item">
           <div class="item-img">
             <a href="/detail/{{ $item->id }}">
-              <p><img src = "/items_images/{{ $item->imgpath }}" style = "height: 400px; width: 300px;"></p>
+              <p><img src = "{{ $item->imgpath }}" style = "height: 400px; width: 300px;"></p>
             </a>
           </div>
           <div class="item-info">

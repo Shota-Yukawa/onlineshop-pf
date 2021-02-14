@@ -6,7 +6,7 @@
   </div>
   <div class="item-detail">
     <div class="detail-left">
-      <p><img src = "/items_images/{{ $item->imgpath }}" style = "height: 700px; width: 550px;"></p>
+      <p><img src = "{{ $item->imgpath }}" style = "height: 700px; width: 550px;"></p>
     </div>
     <div class="detail-right">
       <p class="item-name">{{ $item->name }}</p>

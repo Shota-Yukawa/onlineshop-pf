@@ -9,7 +9,8 @@
       <p>item name :  {{ $item->name }}</p>
       <p>item desc :  {{ $item->desc }}</p>
       <p>item price : ¥{{ $item->price }}</p>
-      <p>画像：<img src = "/items_images/{{ $item->imgpath }}" style = "height: 200px; width: 300px;"></p>
+      <!-- <p>画像：<img src = "/items_images/{{ $item->imgpath }}" style = "height: 200px; width: 300px;"></p> -->
+      <p>画像：<img src = "{{ $item->imgpath }}" style = "height: 200px; width: 300px;"></p>
       </br>
       @endforeach
     @endif

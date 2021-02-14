@@ -36,9 +36,7 @@
         {!! Form::label('imgpath', 'アイテム画像') !!}
       </div>
       @if($item->imgpath)
-      <p>画像：<img src = "/items_images/{{ $item->imgpath }}" style = "height: 100px; width: 100px;"></p>
-      @else
-      <p>{{ $item->imgpath }}</p>
+      <p>画像：<img src = "{{ $item->imgpath }}" style = "height: 100px; width: 100px;"></p>
       @endif
       <div class="add-right">
         {!! Form::file('imgpath', null) !!}
