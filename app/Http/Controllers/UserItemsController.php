@@ -24,7 +24,7 @@ class UserItemsController extends Controller
     {
       $items = Item::all();
       $user = \Auth::user();
-  // dd($user);
+  // dd($items);
       return view('user.items.index', [
         'user' => $user,
         'items' => $items,

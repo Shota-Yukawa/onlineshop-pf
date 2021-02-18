@@ -12,6 +12,7 @@ class ItemController extends Controller
   public function index()
   {
     $items = Item::all();
+    // dd($items);
 
     return view('user.items.index', [
       'items' => $items,
