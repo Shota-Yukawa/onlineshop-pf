@@ -9,6 +9,7 @@
     @endif
     @else
     <div class="user-btn">
+      <p class="reco-user">ユーザーにログインすると、お気に入り機能やカート機能を使用できます</p>
       {!! link_to_route('user.auth.login', 'ユーザーログインページへ',[], ['class' => 'form-btn']) !!}
     </div>
     @endif
