@@ -8,6 +8,9 @@
     <link href="{{ secure_asset('css/start.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('css/content.css') }}" rel="stylesheet">
+    <link href="https://rotsmrc.herokuapp.com/css/start.css" rel="stylesheet">
+    <link href="https://rotsmrc.herokuapp.com/css/main.css" rel="stylesheet">
+    <link href="https://rotsmrc.herokuapp.com/css/content.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   </head>
