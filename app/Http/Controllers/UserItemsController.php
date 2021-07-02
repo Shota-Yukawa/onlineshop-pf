@@ -53,7 +53,7 @@ class UserItemsController extends Controller
 // dd($user);
        $user->loadRelationshipCounts();
 
-       $favorites = $user->favorites();
+       $favorites = $user->favorites()->paginate(10);
 // dd($favorites);
        return view('user.items.favorites', [
            'user' => $user,

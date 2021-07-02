@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h4 class="page-title">Favorites</h4>
+<h4 class="page-title">お気に入りアイテム一覧</h4>
 @if (count($items) > 0)
   @foreach ($items as $item)
   <table class="">

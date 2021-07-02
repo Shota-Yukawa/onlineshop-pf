@@ -9,7 +9,7 @@
       @foreach ($items as $item)
         <div class="item">
           <div class="item-img">
-            <a href="/detail/{{ $item->id }}">
+            <a href="/user/detail/{{ $item->id }}">
               <p><img src = "{{ $item->imgpath }}" style = "height: 400px; width: 300px;"></p>
             </a>
           </div>

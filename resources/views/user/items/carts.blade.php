@@ -2,16 +2,16 @@
 
 @section('content')
 <h4 class="page-title">カート内アイテム一覧</h4>
-<table class="">
-  <tr class="table-head">
-    <th>アイテム写真</th>
-    <th>アイテム名<br>単価</th>
-    <th>商品ごとのお値段</th>
-    <th>数量</th>
-    <th>削除</th>
-  </tr>
 @if (count($cartitems) > 0)
   @foreach ($cartitems as $item)
+  <table class="">
+    <tr class="table-head">
+      <th>アイテム写真</th>
+      <th>アイテム名<br>単価</th>
+      <th>商品ごとのお値段</th>
+      <th>数量</th>
+      <th>削除</th>
+    </tr>
   <tr class="table-item">
     <td class="table-image">
       <img src = "{{ $item->imgpath }}" style = "height: 250px; width: 200px;">
